@@ -21,7 +21,7 @@ public class MatchTest {
     }
 
     @Test
-    public void addScoreTest1(){
+    public void addScoreWithParamsTest(){
         Player firstPlayer = new Player("Test");
         firstPlayer.setScore(3);
         Player secondPlayer = new Player("Sample");
@@ -33,7 +33,7 @@ public class MatchTest {
 
     }
     @Test
-    public void addScoreTest2(){
+    public void addScoreDifferentNameTest(){
         Player firstPlayer = new Player("Test");
         firstPlayer.setScore(3);
         Player secondPlayer = new Player("Sample");
@@ -45,7 +45,7 @@ public class MatchTest {
 
     }
     @Test
-    public void addScoreTest3(){
+    public void addScoreWithScoresTest(){
         Player firstPlayer = new Player("Test");
         firstPlayer.setScore(3);
         Player secondPlayer = new Player("Sample");
@@ -57,7 +57,7 @@ public class MatchTest {
     }
 
     @Test
-    public void addScoreTest4(){
+    public void addScorePlayerOneWinsTest(){
         Player firstPlayer = new Player("Test");
         firstPlayer.setScore(6);
         Player secondPlayer = new Player("Sample");
@@ -69,7 +69,7 @@ public class MatchTest {
     }
 
     @Test
-    public void addScoreTest5(){
+    public void addScorePlayerTwoWinsTest(){
         Player firstPlayer = new Player("Test");
         firstPlayer.setScore(3);
         Player secondPlayer = new Player("Sample");
@@ -81,7 +81,7 @@ public class MatchTest {
     }
 
     @Test
-    public void printScore(){
+    public void printScoreTest(){
         Player firstPlayer = new Player("Test");
         firstPlayer.setScoreList(Arrays.asList(0,15,15,30));
         Player secondPlayer = new Player("Sample");
