@@ -18,30 +18,38 @@ public class Match {
     }
 
     public void addScore(Player player) {
+        player.setScore(player.getScore() + 1);
         int score1 = this.player1.getScore();
         int score2 = this.player2.getScore();
-        if ((score1 == 3 && score2 == 3)) {
-            this.winner = player;
-        }else if (score1 > 3){
-            this.winner = this.player1;
-        }else if(score2 > 3){
-            this.winner = this.player2;
+        if (score1 >= 3 || score2 >= 3) {
+            if (score1 == score2) {
+                System.out.println("DEUSE Rule is Activated");
+            } else if (score1 > score2 && score1 - score2 >= 2) {
+                this.winner = this.player1;
+            } else if (score2 > score1 && score2 - score1 >= 2) {
+                this.winner = this.player2;
+            } else {
+                System.out.println(player.getPlayerName() + " has the advantage");
+            }
+            extracted(player);
         } else {
-            player.setScore(player.getScore() + 1);
-            if (this.player1.getPlayerName().equals(player.getPlayerName())) {
+            extracted(player);
+        }
+    }
+
+    private void extracted(Player player) {
+        if (this.player1.getPlayerName().equals(player.getPlayerName())) {
+            if(this.player1.getScore() <=3){
                 this.player1.getScoreList().add(ScoreConstant.valueOf(player.getScore()));
                 this.player2.getScoreList().add(ScoreConstant.valueOf(this.player2.getScore()));
-            } else {
+            }
+
+        } else {
+            if(this.player2.getScore()<=3) {
                 this.player2.getScoreList().add(ScoreConstant.valueOf(player.getScore()));
                 this.player1.getScoreList().add(ScoreConstant.valueOf(this.player1.getScore()));
             }
-
-            if(this.player1.getScore() == 3 && this.player2.getScore() == 3){
-                System.out.println("DEUCE Rule is activated");
-            }
         }
-
-
     }
 
 

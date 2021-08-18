@@ -17,6 +17,6 @@ public enum ScoreConstant {
                 return status.point;
             }
         }
-        throw new IllegalArgumentException("No matching constant for [" + id + "]");
+        return FORTY.point;
     }
 }

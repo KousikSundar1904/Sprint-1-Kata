@@ -1,7 +1,6 @@
 import entity.Match;
 import entity.Player;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class KataMainApp {
@@ -24,7 +23,7 @@ public class KataMainApp {
         boolean gameOver = false;
 
         while (!gameOver) {
-            System.out.print("Enter 1 for Player 1 or 2 for Player 1 who won the current set (or) enter 'S' to display the score:");
+            System.out.print("Who wins the set..? For Player 1 enter as 1 or Player 2 as 2 (or) enter 'S' to display the score:");
             String command = scanner.nextLine();
             if (command.equalsIgnoreCase("s") || command.equals("1") || command.equals("2")) {
                 switch (command) {
@@ -44,6 +43,8 @@ public class KataMainApp {
                 }
                 if (match.getWinner() != null) {
                     gameOver = true;
+                    System.out.println("------------------------------");
+                    match.printPoint();
                     System.out.println("Player " + match.getWinner().getPlayerName() + " has own the match");
                 }
             } else {
