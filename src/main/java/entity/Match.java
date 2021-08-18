@@ -7,7 +7,6 @@ import lombok.Data;
 public class Match {
     private Player player1;
     private Player player2;
-    private boolean lastPoint = false;
     private Player winner;
     private boolean gameOver;
 
@@ -16,6 +15,7 @@ public class Match {
         this.player1 = player1;
         this.player2 = player2;
     }
+
 
     public void addScore(Player player) {
         player.setScore(player.getScore() + 1);
