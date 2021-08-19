@@ -1,5 +1,6 @@
 import entity.Match;
 import entity.Player;
+import exception.APPException;
 
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class KataMainApp {
 
         while (!gameOver) {
             System.out.print("Who wins the set..? For Player 1 enter as 1 or Player 2 as 2 (or) enter 'S' to display the score:");
-            String command = scanner.nextLine();
+            String command = scanner.nextLine().toLowerCase();
             if (command.equalsIgnoreCase("s") || command.equals("1") || command.equals("2")) {
                 switch (command) {
                     case "1":
@@ -34,7 +35,11 @@ public class KataMainApp {
                         match.addScore(secondPlayer);
                         break;
                     case "s":
-                        match.printPoint();
+                        try {
+                            match.printPoint();
+                        } catch (Exception e) {
+                            throw new APPException(e.getMessage());
+                        }
                         System.out.println("------------------------------");
                         break;
                     default:
@@ -44,7 +49,11 @@ public class KataMainApp {
                 if (match.getWinner() != null) {
                     gameOver = true;
                     System.out.println("------------------------------");
-                    match.printPoint();
+                    try {
+                        match.printPoint();
+                    } catch (Exception e) {
+                        throw new APPException(e.getMessage());
+                    }
                     System.out.println("Player " + match.getWinner().getPlayerName() + " has own the match");
                 }
             } else {
