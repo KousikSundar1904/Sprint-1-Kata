@@ -1,6 +1,4 @@
-parcel-tracking-services/output/
-az-appstore-ui/node
-parcel-tracking-services/src/main/resources/static
+
 # Created by https://www.gitignore.io/api/eclipse,intellij,java,maven,node,visualstudio,leiningen,grunt,bower,webstorm,visualstudiocode
 
 ### Eclipse ###
